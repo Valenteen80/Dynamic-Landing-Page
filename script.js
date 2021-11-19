@@ -11,9 +11,9 @@ function showTime() {
     min = today.getMinutes(),
     sec = today.getSeconds();
 
-    hour = (hour < 10) ? '0' + hour : hour,
-    min = (min < 10) ? '0' + min : min,  
-    sec = (sec < 10) ? '0' + sec : sec;   
+  (hour = hour < 10 ? "0" + hour : hour),
+    (min = min < 10 ? "0" + min : min),
+    (sec = sec < 10 ? "0" + sec : sec);
 
   // Set AM or PM
   const amPm = hour >= 12 ? "PM" : "AM";
@@ -24,7 +24,7 @@ function showTime() {
   }
 
   // Output Time
-  time.innerHTML = hour + ':' + min + ':' + sec + ' ' + amPm;
+  time.innerHTML = hour + ":" + min + ":" + sec + " " + amPm;
 
   setTimeout(showTime, 1000);
 }
@@ -38,19 +38,17 @@ function setBgGreet() {
 
   if (hour < 12) {
     // Morning
-    document.body.style.backgroundImage =
-      "url('https://oir.mobi/uploads/posts/2021-06/1623446769_11-oir_mobi-p-belorusskaya-priroda-priroda-krasivo-foto-12.jpg')";
+    document.body.style.backgroundImage = "url(morning.jpg)";
     greeting.textContent = "Добрага ранку,  и сонца на ганку!";
     document.body.style.color = "white";
   } else if (hour < 18) {
     // Afternoon
-    document.body.style.backgroundImage =
-      "url('http://s2.fotokto.ru/photo/full/633/6339287.jpg')";
+    document.body.style.backgroundImage = "url(afternoon.jpg)";
     greeting.textContent = "Добры дзень, ";
   } else {
     // Evening
-    document.body.style.backgroundImage =
-      "url('https://content.onliner.by/news/2016/05/original_size/1029112cdf021e529d237cddca59fccc_1464685007.jpg')";
+    document.body.style.backgroundImage = "url(night.jpg)";
+    document.body.style.backgroundImage = url(night.jpg);
     greeting.textContent = "Добры вечар, ";
     document.body.style.color = "white";
   }
@@ -74,7 +72,7 @@ name.addEventListener("keypress", setName);
 name.addEventListener("blur", setName);
 
 function setName(e) {
-  if ((e.type === "keypress") && (e.keyCode === 13)) {
+  if (e.type === "keypress" && e.keyCode === 13) {
     localStorage.setItem("name", e.target.innerText);
     name.blur();
   }
@@ -97,10 +95,9 @@ focus.addEventListener("keypress", setFocus);
 focus.addEventListener("blur", setFocus);
 
 function setFocus(e) {
-  if ((e.type === "keypress") && (e.keyCode === 13)) {
+  if (e.type === "keypress" && e.keyCode === 13) {
     localStorage.setItem("focus", e.target.innerText);
     focus.blur();
   }
   localStorage.setItem("focus", e.target.innerText);
 }
-
