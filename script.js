@@ -10,6 +10,10 @@ function showTime() {
     hour = today.getHours(),
     min = today.getMinutes(),
     sec = today.getSeconds();
+  // 12hr Format
+  // if (hour % 12) {
+  //   hour = hour % 12;
+  // }
 
   (hour = hour < 10 ? "0" + hour : hour),
     (min = min < 10 ? "0" + min : min),
@@ -17,11 +21,6 @@ function showTime() {
 
   // Set AM or PM
   const amPm = hour >= 12 ? "PM" : "AM";
-
-  // 12hr Format
-  if (hour % 12) {
-    hour = hour % 12;
-  }
 
   // Output Time
   time.innerHTML = hour + ":" + min + ":" + sec + " " + amPm;
